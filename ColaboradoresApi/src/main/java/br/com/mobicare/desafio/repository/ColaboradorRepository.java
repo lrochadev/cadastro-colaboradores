@@ -1,4 +1,4 @@
-package br.com.mobicare.desafio.service;
+package br.com.mobicare.desafio.repository;
 
 import java.util.List;
 
@@ -17,8 +17,6 @@ import br.com.mobicare.desafio.model.Colaborador;
 @Repository
 public interface ColaboradorRepository extends JpaRepository<Colaborador, Long> {
 
-	// group by s.descricao, c.nome, c.email order by s.descricao asc
-	
 	@Query(value = " select new br.com.mobicare.desafio.dto.ColaboradorDTO "
 			+ "(colaborador.id, colaborador.nome, colaborador.email, colaborador.dataNascimento, setor.descricao) "
 			+ "from Colaborador colaborador inner join colaborador.setor setor where 1=1")

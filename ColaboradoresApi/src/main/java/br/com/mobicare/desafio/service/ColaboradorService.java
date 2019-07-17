@@ -12,6 +12,7 @@ import org.springframework.transaction.annotation.Transactional;
 import br.com.mobicare.desafio.dto.ColaboradorDTO;
 import br.com.mobicare.desafio.model.Colaborador;
 import br.com.mobicare.desafio.model.Setor;
+import br.com.mobicare.desafio.repository.ColaboradorRepository;
 
 /**
  * 
