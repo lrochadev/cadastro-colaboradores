@@ -12,7 +12,9 @@ Com o build realizado com sucesso, executar o comando abaixo para criar os conta
 
 A partir de agora você poderá acessar os serviços pelos endpoints.
 
-# Endpoints API
+# Link de acesso para a aplicação: http://localhost:4200
+
+# Endpoints API*
 
 Endpoints necessários para consumir os serviços da API:
 
