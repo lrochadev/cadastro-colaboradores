@@ -12,7 +12,7 @@ A partir de agora você poderá acessar os serviços pelos endpoints.
 
 # Link de acesso para a aplicação: http://localhost:4200
 
-# Endpoints API*
+# Endpoints de acesso a API:
 
 Endpoints necessários para consumir os serviços da API:
 
