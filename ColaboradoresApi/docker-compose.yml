@@ -1,0 +1,59 @@
+version: '3'
+
+services:
+  db:
+    build:
+      context: .
+      dockerfile: mysql.dockerfile
+    image: lrochadev/colaboradores-db
+    container_name: colaboradores-db
+    ports:
+      - 3306:3306
+    networks:
+      - production-network
+    volumes:
+      - 'microservices_colaboradores:/var/lib/mysql'
+    environment:
+      MYSQL_ROOT_PASSWORD: mysql
+      MYSQL_DATABASE: desafio
+      MYSQL_USER: root
+      MYSQL_PASSWORD: mysql
+
+  springappserver:
+    depends_on:
+      - db
+    build:
+      context: .
+      dockerfile: app.dockerfile
+    image: lrochadev/colaboradores-api
+    container_name: colaboradores-api
+    ports:
+      - '8080:8080'
+    environment:
+      DATABASE_HOST: db
+      DATABASE_USER: root
+      DATABASE_PASSWORD: mysql
+      DATABASE_NAME: desafio
+      DATABASE_PORT: 3306
+    networks:
+      - production-network
+
+  nginx:
+    depends_on:
+      - springappserver
+    build:
+      context: ./../colaboradores-angular/
+      dockerfile: node-nginx.dockerfile
+    image: lrochadev/colaboradores-frontend
+    container_name: colaboradores-frontend
+    ports:
+        - '4200:80'
+    networks:
+      - production-network
+
+volumes:
+  microservices_colaboradores:
+
+networks:
+  production-network:
+    driver: bridge

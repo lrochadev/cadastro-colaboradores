@@ -1,0 +1,19 @@
+<div class="modal-header">
+  <b>
+    <h6 class="modal-title pull-left">{{ 'Atenção!' }}</h6>
+  </b>
+</div>
+<div class="modal-body">
+  <div *ngIf="errorDetails">
+    <label *ngIf="errorDetails.titulo" class="font-modal-tkn"><b>Erro: </b>{{errorDetails.titulo}}</label>
+    <br />
+    <label *ngIf="errorDetails.status" class="font-modal-tkn"><b>Status: </b> {{errorDetails.status}}</label>
+    <br />
+    <label *ngIf="errorDetails.detalhes" class="font-modal-tkn"><b>Detalhes: </b> {{errorDetails.detalhes}}</label>
+    <br />
+    <label *ngIf="errorDetails.developer"
+      class="font-modal-tkn"><b>MensagemDesenvolvedor:</b>{{errorDetails.developer}}</label>
+  </div>
+  <div *ngIf="mensagem">
+    <label>{{mensagem}}</label>
+  </div>

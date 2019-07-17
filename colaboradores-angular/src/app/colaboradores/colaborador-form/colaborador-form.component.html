@@ -1,0 +1,48 @@
+<div class="mt-5">
+  <form [formGroup]="form" class="needs-validation" novalidate>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <app-input-container errorMessage="Digite um CPF válido com 11 caracteres." label="CPF:">
+          <input type="text" formControlName="cpf" class="form-control" mask="000.000.000-00" />
+        </app-input-container>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <app-input-container errorMessage="Campo obrigatório." label="Nome:">
+          <input type="text" formControlName="nome" class="form-control" maxlength="100" minlength="3" />
+        </app-input-container>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <app-input-container errorMessage="Campo obrigatório." label="Telefone:">
+          <input type="text" formControlName="telefone" class="form-control" mask="(00) 0000-0000" />
+        </app-input-container>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <app-input-container errorMessage="Campo obrigatório." label="E-mail:">
+          <input type="text" formControlName="email" class="form-control" maxlength="80" />
+        </app-input-container>
+      </div>
+    </div>
+    <div class="row justify-content-md-center">
+      <div class="col-6">
+        <app-input-container errorMessage="Campo obrigatório." label="Data de Nascimento:">
+          <input type="text" formControlName="dataNascimento" class="form-control" maxlength="10" mask="00/00/0000" [value]="form.get('dataNascimento').value | date: 'dd/MM/yyyy'" />
+        </app-input-container>
+      </div>
+    </div>
+
+    <div class="row justify-content-md-center">
+      <div class="col-6 mt-4">
+        <button type="button" class="form-control btn btn-primary" aria-pressed="true" aria-pressed="true"
+          (click)="cadastrar();" [disabled]="!form.valid">
+          Cadastrar
+        </button>
+      </div>
+    </div>
+  </form>
+</div>

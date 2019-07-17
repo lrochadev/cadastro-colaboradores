@@ -1,0 +1,4 @@
+<label class="mt-2">{{label}}</label>
+<ng-content></ng-content>
+<span class="help-block" style="font-size: 12px;" [style.color]="styleColor ? '#696969' :'red'">{{hasError()
+  ? '* '+ errorMessage : '&nbsp;' }}</span>

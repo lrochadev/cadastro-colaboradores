@@ -1,0 +1,33 @@
+<div class="text-center mt-5">
+  <form [formGroup]="searchForm">
+    <div class="form-group">
+      <input class="form-control" type="text" placeholder="Busca..." autofocus formControlName="searchControl" />
+    </div>
+  </form>
+</div>
+
+<table class="table table-striped mt-3">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Idade</th>
+      <th scope="col">Setor</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let colaborador of colaboradores; index as i">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ colaborador.nome }}</td>
+      <td>{{ colaborador.email }}</td>
+      <td>{{ colaborador.idade }}</td>
+      <td>{{ colaborador.descricaoSetor }}</td>
+      <td>
+        <a [routerLink]="[colaborador.id]" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+        <button (click)="deletar(colaborador)" class="btn btn-outline-danger btn-sm">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
