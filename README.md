@@ -1,5 +1,3 @@
-# cadastro-colaboradores
-
 # Instruções:
 
 Fazer o checkout do projeto e na raiz acessar a pasta ColaboradoresApi e executar o comando abaixo:
