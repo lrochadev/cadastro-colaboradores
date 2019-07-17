@@ -18,7 +18,7 @@ A partir de agora você poderá acessar os serviços pelos endpoints.
 
 Endpoints necessários para consumir os serviços da API:
 
-<li>Criar colaborador</li>
+# Criar colaborador
 
  - POST - http://localhost:8080/colaboradores
  
