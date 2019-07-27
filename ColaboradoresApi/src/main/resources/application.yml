@@ -12,6 +12,6 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.MySQL8Dialect
   datasource:
-    url: jdbc:mysql://db:3306/desafio?allowPublicKeyRetrieval=true&sslMode=DISABLED
+    url: jdbc:mysql://${DATABASE_HOST:localhost}:3306/desafio?allowPublicKeyRetrieval=true&sslMode=DISABLED
     username: root
     password: mysql

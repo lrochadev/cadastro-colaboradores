@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: springappserver
+spec:
+  rules:
+    - host: dev.local
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: springappserver
+              servicePort: 80

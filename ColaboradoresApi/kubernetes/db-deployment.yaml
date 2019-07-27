@@ -1,0 +1,44 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  annotations:
+    kompose.cmd: kompose convert
+    kompose.version: 1.16.0 (0c01309)
+  creationTimestamp: null
+  labels:
+    io.kompose.service: db
+  name: db
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        io.kompose.service: db
+    spec:
+      containers:
+      - env:
+        - name: MYSQL_DATABASE
+          value: desafio
+        - name: MYSQL_PASSWORD
+          value: mysql
+        - name: MYSQL_ROOT_PASSWORD
+          value: mysql
+        - name: MYSQL_USER
+          value: root
+        image: lrochadev/colaboradores-db
+        name: colaboradores-db
+        ports:
+        - containerPort: 3306
+        resources: {}
+        volumeMounts:
+        - mountPath: /var/lib/mysql
+          name: microservices-colaboradores
+      restartPolicy: Always
+      volumes:
+      - name: microservices-colaboradores
+        persistentVolumeClaim:
+          claimName: microservices-colaboradores
+status: {}
