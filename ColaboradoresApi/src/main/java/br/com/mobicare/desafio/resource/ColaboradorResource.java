@@ -32,7 +32,8 @@ import br.com.mobicare.desafio.service.IColaboradorService;
  */
 @RestController
 @RequestMapping("/colaboradores")
-@CrossOrigin(origins = "http://localhost:4200")
+// @CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "*", allowedHeaders = "*", maxAge = 3600)
 public class ColaboradorResource {
 
 	@Autowired
@@ -41,7 +42,7 @@ public class ColaboradorResource {
 	/**
 	 *
 	 * Método responsável por buscar a criar um colaborador.
-	 * 
+	 *
 	 * @param colaborador
 	 * @param response
 	 * @return
@@ -56,7 +57,7 @@ public class ColaboradorResource {
 	/**
 	 *
 	 * Método responsável por listar todos os colaboradores da base de dados.
-	 * 
+	 *
 	 * @return
 	 *
 	 */
@@ -67,7 +68,7 @@ public class ColaboradorResource {
 
 	/**
 	 * Método responsável por buscar um colaborador por id.
-	 * 
+	 *
 	 * @param id
 	 * @param response
 	 * @return
@@ -92,7 +93,7 @@ public class ColaboradorResource {
 	/**
 	 *
 	 * Método responsável por filtrar os colaboradores por nome.
-	 * 
+	 *
 	 * @param nome
 	 * @param response
 	 * @return
@@ -106,7 +107,7 @@ public class ColaboradorResource {
 	/**
 	 *
 	 * Método responsável por deletar um colaborador.
-	 * 
+	 *
 	 * @param id
 	 *
 	 */
