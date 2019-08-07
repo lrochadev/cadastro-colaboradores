@@ -1,13 +1,18 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: springappserver
+  name: gateway-ingress
+#  annotations:
+#  nginx.ingress.kubernetes.io/rewrite-target: /
 spec:
+  backend:
+    serviceName: default-http-backend
+    servicePort: 80
   rules:
     - host: dev.local
       http:
         paths:
-          - path: /
+          - path: /colaboradores
             backend:
               serviceName: springappserver
-              servicePort: 80
+              servicePort: 8080
