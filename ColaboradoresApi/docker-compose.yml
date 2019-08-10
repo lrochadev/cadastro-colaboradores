@@ -47,7 +47,7 @@ services:
     image: lrochadev/colaboradores-frontend
     container_name: colaboradores-frontend
     ports:
-        - '4200:80'
+        - '80:80'
     networks:
       - production-network
 
