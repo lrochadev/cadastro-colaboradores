@@ -1,6 +1,8 @@
 package br.com.mobicare.desafio.resource;
 
+import java.net.InetAddress;
 import java.net.URI;
+import java.net.UnknownHostException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
@@ -46,8 +48,7 @@ public class ColaboradorResource {
 	 *
 	 */
 	@PostMapping
-	public ResponseEntity<ColaboradorDTO> criar(@Valid @RequestBody Colaborador colaborador,
-			HttpServletResponse response) {
+	public ResponseEntity<ColaboradorDTO> criar(@Valid @RequestBody Colaborador colaborador) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(this.colaboradorService.inserir(colaborador));
 	}
 
@@ -97,7 +98,7 @@ public class ColaboradorResource {
 	 *
 	 */
 	@GetMapping(path = "/buscarPorNome")
-	public List<ColaboradorDTO> buscarPorNome(@RequestParam(required = false, defaultValue = "%") String nome, HttpServletResponse response) {
+	public List<ColaboradorDTO> buscarPorNome(@RequestParam(required = false, defaultValue = "%") String nome) {
 		return this.colaboradorService.buscarPorNome(nome);
 	}
 
@@ -112,5 +113,16 @@ public class ColaboradorResource {
 	@ResponseStatus(HttpStatus.NO_CONTENT)
 	public void deletar(@PathVariable final Long id) {
 		this.colaboradorService.remover(id);
+	}
+
+	@GetMapping(path = "/hello")
+	public String sayHello() {
+		InetAddress ip = null;
+		try {
+			ip = InetAddress.getLocalHost();
+		} catch (UnknownHostException e) {
+			e.printStackTrace();
+		}
+		return "Hello " + ip;
 	}
 }
