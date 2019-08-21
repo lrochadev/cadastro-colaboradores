@@ -3,19 +3,13 @@ kind: Ingress
 metadata:
   name: gateway-ingress
   annotations:
-   nginx.ingress.kubernetes.io/enable-cors: "true"
-#    nginx.ingress.kubernetes.io/cors-allow-credentials: "false"
-#    nginx.ingress.kubernetes.io/cors-allow-origin: "http://dev.local/*"
-#    nginx.ingress.kubernetes.io/cors-allow-methods: "PUT, GET, POST, OPTIONS"
+    nginx.ingress.kubernetes.io/enable-cors: "true"
 spec:
-  backend:
-    serviceName: springappserver
-    servicePort: 80
   rules:
     - host: dev.local
       http:
         paths:
-          - path: /colaboradores
+          - path: /
             backend:
               serviceName: springappserver
               servicePort: 8080
