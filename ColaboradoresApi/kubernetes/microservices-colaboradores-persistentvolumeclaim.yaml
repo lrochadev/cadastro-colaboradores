@@ -1,14 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  creationTimestamp: null
-  labels:
-    io.kompose.service: microservices-colaboradores
   name: microservices-colaboradores
+  labels:
+    app: microservices-colaboradores
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
       storage: 100Mi
-status: {}
