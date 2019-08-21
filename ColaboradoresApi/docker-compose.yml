@@ -39,8 +39,6 @@ services:
       - production-network
 
   nginx:
-    depends_on:
-      - springappserver
     build:
       context: ./../colaboradores-angular/
       dockerfile: node-nginx.dockerfile
