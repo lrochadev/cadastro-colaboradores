@@ -11,5 +11,9 @@ spec:
         paths:
           - path: /
             backend:
+              serviceName: nginx
+              servicePort: 80
+          - path: /colaboradores
+            backend:
               serviceName: springappserver
               servicePort: 8080
