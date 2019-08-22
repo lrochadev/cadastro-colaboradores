@@ -23,11 +23,11 @@ spec:
           value: mysql
         - name: MYSQL_USER
           value: root
-        image: lrochadev/colaboradores-db
+        image: lrochadev/colaboradores-db:latest
         name: colaboradores-db
         ports:
         - containerPort: 3306
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         volumeMounts:
         - mountPath: /var/lib/mysql
           name: microservices-colaboradores

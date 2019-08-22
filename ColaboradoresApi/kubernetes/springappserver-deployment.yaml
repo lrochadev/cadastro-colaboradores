@@ -6,7 +6,6 @@ metadata:
     app: springappserver
 spec:
   replicas: 1
-  
   template:
     metadata:
       labels:
@@ -24,8 +23,8 @@ spec:
           value: "3306"
         - name: DATABASE_USER
           value: root
-        image: lrochadev/colaboradores-api
+        image: lrochadev/colaboradores-api:latest
         name: colaboradores-api
-        imagePullPolicy: Never
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
