@@ -15,3 +15,18 @@ spring:
     url: jdbc:mysql://${DATABASE_HOST:localhost}:3306/desafio?allowPublicKeyRetrieval=true&sslMode=DISABLED
     username: root
     password: mysql
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    metrics:
+      enabled: false
+    prometheus:
+      enabled: true
