@@ -2,7 +2,7 @@ FROM node:9.11.2-slim as builder
 
 COPY package*.json ./
 
-RUN npm install npm@latest -g
+RUN npm install npm@6.10.2 -g
 
 RUN npm install
 
