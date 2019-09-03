@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: app-configmap
+data:
+  MYSQL_DATABASE: "desafio"
+  MYSQL_PASSWORD: "mysql"
+  MYSQL_ROOT_PASSWORD: "mysql"
+  MYSQL_USER: "root"
+  DATABASE_HOST: "db"
+  DATABASE_NAME: "desafio"
+  DATABASE_PASSWORD: "mysql"
+  DATABASE_PORT: "3306"
+  DATABASE_USER: "root"
+  JAVA_OPTS: "-agentlib:jdwp=transport=dt_socket,address=*:5005,server=y,suspend=n -Xms256m -Xmx512m -XX:MaxMetaspaceSize=128m"

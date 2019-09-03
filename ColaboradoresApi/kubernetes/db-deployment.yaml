@@ -14,25 +14,18 @@ spec:
         app: db
     spec:
       containers:
-      - env:
-        - name: MYSQL_DATABASE
-          value: desafio
-        - name: MYSQL_PASSWORD
-          value: mysql
-        - name: MYSQL_ROOT_PASSWORD
-          value: mysql
-        - name: MYSQL_USER
-          value: root
-        image: lrochadev/colaboradores-db:latest
-        name: colaboradores-db
-        ports:
-        - containerPort: 3306
-        imagePullPolicy: Always
-        volumeMounts:
-        - mountPath: /var/lib/mysql
-          name: microservices-colaboradores
-      restartPolicy: Always
+        - image: lrochadev/colaboradores-db:latest
+          name: colaboradores-db
+          envFrom:
+            - configMapRef:
+                name: app-configmap
+          ports:
+            - containerPort: 3306
+          imagePullPolicy: Always
+          volumeMounts:
+          - mountPath: /var/lib/mysql
+            name: microservices-colaboradores
       volumes:
-      - name: microservices-colaboradores
-        persistentVolumeClaim:
-          claimName: microservices-colaboradores
+        - name: microservices-colaboradores
+          persistentVolumeClaim:
+            claimName: microservices-colaboradores

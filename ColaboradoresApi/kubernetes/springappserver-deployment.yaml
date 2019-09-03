@@ -5,26 +5,18 @@ metadata:
   labels:
     app: springappserver
 spec:
-  replicas: 1
+  replicas: 3
   template:
     metadata:
       labels:
         app: springappserver
     spec:
       containers:
-      - env:
-        - name: DATABASE_HOST
-          value: db
-        - name: DATABASE_NAME
-          value: desafio
-        - name: DATABASE_PASSWORD
-          value: mysql
-        - name: DATABASE_PORT
-          value: "3306"
-        - name: DATABASE_USER
-          value: root
-        image: lrochadev/colaboradores-api:latest
-        name: colaboradores-api
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 8080
+        - image: lrochadev/colaboradores-api:latest
+          name: colaboradores-api
+          envFrom:
+            - configMapRef:
+                name: app-configmap
+          imagePullPolicy: Always
+          ports:
+          - containerPort: 8080
